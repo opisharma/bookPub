@@ -31,3 +31,5 @@ Route::middleware('auth:api')->group(function(){
     Route::put('books/{id}',[BookController::class, 'update']);
     Route::delete('books/{id}',[BookController::class, 'destroy']);
 });
+
+Route::get('dashboard',[BookController::class, 'dashboard']);
