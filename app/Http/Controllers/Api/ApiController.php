@@ -57,7 +57,7 @@ class ApiController extends Controller
         ]);
     }
 
-    public function profile() {}
-    public function refreshToken() {}
-    public function logout() {}
+    // public function profile() {}
+    // public function refreshToken() {}
+    // public function logout() {}
 }
