@@ -42,6 +42,19 @@ class ApiController extends Controller
             "email" => $request->email,
             "password" => $request-> password
         ]);
+
+        if(!$token){
+            return response()->json([
+                "status" => false,
+                "message" => "Unauthorized login"
+            ]);
+        }
+
+        return response()->json([
+            "status" => true,
+            "message" => "Login successful",
+            "token" => $token
+        ]);
     }
 
     public function profile() {}
