@@ -31,4 +31,23 @@ class BookController extends Controller
 
         return response()->json($book, 201);
     }
+
+
+    public function read(){
+        $user = JWTAuth::parseToken()->authenticate();
+        $books = Book::where('user_id', $user->id)->get();
+
+    }
+
+    public function update(Request $request, $id){
+        $book = Book::findOrFail($id);
+        $user = JWTAuth::parseToken()->authenticate();
+
+        if($book->user_id != $user->id){
+            return response()->json(['error' => 'Focus on editing your own books'],403);
+        }
+
+        $book->update($request->all());
+        return response()->json($book);
+    }
 }
