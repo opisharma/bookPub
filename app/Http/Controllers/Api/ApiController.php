@@ -57,6 +57,15 @@ class ApiController extends Controller
         ]);
     }
 
+    public function logout(Request $request) {
+        Auth::invalidate(Auth::parseToken());
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Logged out successfully'
+        ], 200);
+    }
+
     // public function profile() {}
     // public function refreshToken() {}
     // public function logout() {}

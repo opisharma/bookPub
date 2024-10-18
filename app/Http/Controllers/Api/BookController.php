@@ -42,6 +42,8 @@ class BookController extends Controller
 
     }
 
+  
+
     public function update(Request $request, $id) {
         $book = Book::findOrFail($id);
         $user = JWTAuth::parseToken()->authenticate();
